@@ -37,7 +37,7 @@ public class UserResource {
     public ResponseEntity<User> createUser(@RequestBody User user) {
         try {
             User _user = userRepo
-                    .save(new User(user.getName(), user.getEmail(), user.getPassword(), false));
+                    .save(new User(user.getName(), user.getEmail(), user.getPassword(), true));
             return new ResponseEntity<>(_user, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
